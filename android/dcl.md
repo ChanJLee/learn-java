@@ -38,8 +38,3 @@ public class Singleton
     volatile有两种内存语义，一种是缓存一致性，另一种就是加屏障了。所谓缓存一致性就是当读volatile变量时，jmm会把该线程对应的本地内存置为无效。线程接下来将从主内存中读取共享变量。至于屏障类型有四种，StoreStore屏障，StoreLoad屏障，LoadLoad屏障，LoadStore屏障。简单来说，只要volatile变量于普通变量之间的重排序可能破坏volatile的内存语义，这种重排序就会被编译器重排序规则和处理器内存屏障插入策略禁止。
     说完volatile，接下来就是锁了。说到锁注意一个问题，锁指的不仅仅是synchronized，synchronized是锁的一种而已，而且还不是最好的一种。锁的内存语义和volatile 是完全一样的，那么锁的实现是什么原理呢？我总结为volatile变量＋CAS轮询。volatile变量保护状态的正确性，CAS保证状态的原子性。至于CAS的原理参看本人另一篇博客。
     暂时通过一个例子简单介绍并发的一点基础，后续慢慢补充锁的其他知识。
---------------------- 
-作者：wander_sky 
-来源：CSDN 
-原文：https://blog.csdn.net/yu280265067/article/details/50894540 
-版权声明：本文为博主原创文章，转载请附上博文链接！
