@@ -13,8 +13,8 @@ int main(int argc, char const *argv[])
     }
 
 
-    in_port_t port = 13;
-    const char * ip = "206.168.112.96";
+    in_port_t port = 8080;
+    const char * ip = "192.168.0.100";
     std::cout << "connect " << ip << " port: " << port << std::endl;
 
     sockaddr_in addr;
