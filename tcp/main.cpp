@@ -44,7 +44,6 @@ int main(int argc, char const *argv[])
     }
 
     std::cout << std::endl;
-
     close(fd);
     return 0;
 }
