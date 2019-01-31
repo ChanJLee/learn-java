@@ -15,9 +15,12 @@ int main(int argc, char const *argv[])
     sockaddr_in addr;
     memset(&addr, 0, sizeof(sockaddr_in));
 
+    in_port_t port = 8080;
     addr.sin_family = AF_INET;
-    addr.sin_port = htons(8080);
+    addr.sin_port = htons(port);
     addr.sin_addr.s_addr = htonl(INADDR_ANY);
+
+    std::cout << "port: " << port << std::endl;
 
     if (bind(fd, (sockaddr*) &addr, sizeof(sockaddr_in)) < 0) {
         std::cerr << "bind failed" << std::endl;
