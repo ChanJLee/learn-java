@@ -13,8 +13,8 @@ int main(int argc, char const *argv[])
     }
 
 
-    in_port_t port = 8080;
-    const char * ip = "192.168.0.100";
+    in_port_t port = 9527;
+    const char * ip = "139.180.205.93";
     std::cout << "connect " << ip << " port: " << port << std::endl;
 
     sockaddr_in addr;
@@ -37,14 +37,15 @@ int main(int argc, char const *argv[])
     std::cout << "body: " << std::endl;
 
     int len = 0;
-    char buffer[1024] = {0};
+    char buffer[1024] = "what fuck";
+    write(fd, buffer, sizeof(buffer));
     while((len = read(fd, buffer, 1024)) > 0) {
         buffer[len] = '\0';
         std::cout << buffer;
     }
 
     std::cout << std::endl;
-    
+
     close(fd);
     return 0;
 }
